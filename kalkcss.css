@@ -1,0 +1,15 @@
+table {
+    margin-left: 10%;
+    padding: 10px;
+    text-align: center;
+    border: 1px black;
+    background-color: lightslategray;
+    width: 80%;
+    
+}
+
+body {
+    text-align: center;
+    color: white;
+    background-image: url('Pizza-3007395.jpg');
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista zakupów</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="lista.css">
+    <script>
+        function zinfo() {
+            var produkt = document.getElementById("produkt").value;
+            var razy = document.getElementById("razy").value;
+            var info = produkt + " | " + razy + "<br>";
+
+            var pinfo = document.getElementById("info").innerHTML;
+            document.getElementById("info").innerHTML = pinfo + info;
+        }
+
+        function dinfo() {
+            var info = document.getElementById("info").innerHTML;
+            var blob = new Blob([info], { type: "text" });
+
+            var a = document.createElement("a");
+            a.download = "lista.txt";
+            a.href = URL.createObjectURL(blob);
+            a.click();
+        }
+    </script>
+</head>
+<body>
+    <h1>Stwórz listę potrzebnych ci zakupów, a potem ją pobierz.</h1>
+    <li><a href="index.html">Powrót do strony głównej</a></li>
+    <form>
+        <table>
+            <tr>
+                <td>
+                    <label for="produkt">Produkt: </label>
+                </td>
+                <td>
+                    <input type="text" id="produkt" name="produkt">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="razy">Ilość: </label>
+                </td>
+                <td>
+                    <input type="text" id="razy" name="razy">
+                </td>
+            </tr>
+        </table>
+    </form>
+    <button type="button" onclick="zinfo()">Zapisz</button>
+    <button type="button" onclick="dinfo()">Pobierz liste zakupów</button>
+    <div id="info"></div>
+</body>
+</html>

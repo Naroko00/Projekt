@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kalkulator opłacalności pizzy</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="kalkcss.css">
+    <script>
+        function obliczpolepizzy() {
+            var srednica = document.getElementById("d").value;
+            var srednica2 = document.getElementById("d2").value;
+            var pole = Math.PI * (srednica / 2)**2;
+            var pole2 = Math.PI * (srednica2 / 2)**2;
+            
+            var koszt = document.getElementById("pln").value;
+            var koszt2 = document.getElementById("pln2").value;
+            var cena = koszt / pole;
+            var cena2 = koszt2 / pole2;
+            
+            var ilosc = document.getElementById("i").value;
+            var ilosc2 = document.getElementById("ix").value;
+            var i1 = ilosc * pole;
+            var i2 = ilosc * cena;
+            var i3 = ilosc2 * pole2;
+            var i4 = ilosc2 * cena2;
+
+            document.getElementById("wynik").innerHTML = "Pole pizzy wynosi: " + i1.toFixed(2) + " cm2";
+            document.getElementById("wynik2").innerHTML = "Cena za cm2 wynosi: " + i2.toFixed(2) + " gr";
+            document.getElementById("wynik3").innerHTML = "Pole pizzy wynosi: " + i3.toFixed(2) + " cm2";
+            document.getElementById("wynik4").innerHTML = "Cena za cm2 wynosi: " + i4.toFixed(2) + " gr";
+            
+            var elem = document.getElementById("tekst");
+
+            if(i2<i4) {
+                elem.innerHTML = "Pizza 1 jest bardziej opłacalna";
+            }
+            else{
+                elem.innerHTML = "Pizza 2 jest bardziej opłacalna";
+            }
+            if(i2==i4){
+                elem.innerHTML = "Obie pizze posiadają taką samą cenę za cm2.";
+            }
+        }
+     </script>
+
+</head>
+<body>
+    <h1>Kalkulator opłacalności pizzy</h1>
+    <form>
+        <table>
+            <tr>
+                <td id="t1">
+                    <h2>Pizza 1</h2>
+                </td>
+                <td id="t2">
+                    <h2>Pizza 2</h2>
+                </td>
+            </tr>
+            <tr>
+                <td id="t1">
+                    <label for="srednica">Średnica pizzy:</label>
+                    <input type="number" id="d" name="srednica">
+                </td>
+                <td id="t2">
+                    <label for="srednica2">Średnica pizzy:</label>
+                    <input type="number" id="d2" name="srednica2">
+                </td>
+            </tr>
+            <tr>
+                <td id="t1">
+                    <label for="koszt">Koszt pizzy:</label>
+                    <input type="number" id="pln" name="koszt">
+                </td>
+                <td id="t2">
+                    <label for="koszt2">Koszt pizzy:</label>
+                    <input type="number" id="pln2" name="koszt2">
+                </td>
+            </tr>
+            <tr>
+                <td id="t1">
+                    <label for="ilosc">Ilość zamawianych sztuk pizzy:</label>
+                    <input type="number" id="i" name="ilosc">
+                </td>
+                <td id="t2">
+                    <label for="ilosc2">Ilość zamawianych sztuk pizzy:</label>
+                    <input type="number" id="ix" name="ilosc2">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                <button type="button" onclick="obliczpolepizzy()">Oblicz</button>
+                </td>
+            </tr>
+            <tr>
+                <td id="t1">
+                    <div id="wynik"></div>
+                    <div id="wynik2"></div>
+                </td>
+                <td id="t2">
+                    <div id="wynik3"></div>
+                    <div id="wynik4"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h2 id="tekst">Sprawdź która pizza jest bardziej opłacalna</h2>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <li><a href="index.html">Powrót do strony głównej</a></li>
+</body>
+</html>
